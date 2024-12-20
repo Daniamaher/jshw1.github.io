@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dania hw</title>
+</head>
+<body> 
+    <input type="text" placeholder="Guess a number between 1 and 10" id="i1" style="width:250px">
+    <button onclick="MyFun1()">Submit</button>
+    <p id="p1"></p>
+    <hr style="width:320px;margin-left:0;">
+
+
+    <input type="text" id="i2"> 
+    <button onclick="Add()">Add</button>
+    <button onclick="Display()">Display</button>
+
+    <hr style="width:320px;margin-left:0;">
+   
+    <div id="display"></div>
+
+    <script>
+
+       var arr = [];
+       
+        function MyFun1() {
+            var userinput = parseInt(document.getElementById("i1").value, 10);
+            var r = Math.floor(Math.random() * 10 + 1);
+            if (r === userinput) {
+                document.getElementById("p1").innerHTML = "Good Work";
+                document.getElementById("p1").style.color = "green";
+                console.log("The random num is " + r);
+                console.log("The user input is " + userinput);
+                console.log("Good Work");
+            } else {
+                console.log("The random num is " + r);
+                console.log("The user input is " + userinput);
+                document.getElementById("p1").innerHTML = "Not matched. The correct number was " + r;
+                document.getElementById("p1").style.color = "red";
+                console.log("Not matched");
+            }
+        }
+
+        function Add() {
+            var e = document.getElementById("i2").value;  
+            if (e) {
+                arr.push(e);
+                document.getElementById("i2").value = ""; 
+            }
+        }
+
+        function Display(){
+            var da = document.getElementById("display");
+            da.innerHTML = "";  
+
+            for (var i = 0; i < arr.length; i++) {
+                da.innerHTML += `<p>Element ${i + 1} = ${arr[i]}</p>`;
+                console.log(arr[i]);
+            }
+        }
+
+    </script>
+</body>
+</html>
